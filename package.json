@@ -5,6 +5,11 @@
     "packages/*"
   ],
   "devDependencies": {
+    "chokidar": "^3.5.3",
+    "jest": "^29.5.0",
     "lerna": "^6.0.3"
+  },
+  "scripts": {
+    "serve": "cd packages/demo && npm run serve"
   }
 }
