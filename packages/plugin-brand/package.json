@@ -16,7 +16,5 @@
   "publishConfig": {
     "registry": "https://registry.npmmirror.com/"
   },
-  "scripts": {
-    "test": "node ./__tests__/plugin-brand.test.js"
-  }
+  "scripts": {}
 }
