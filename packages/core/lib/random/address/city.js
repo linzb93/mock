@@ -21,12 +21,14 @@ module.exports = (...args) => {
     }
     const cityList = Object.keys(addrData).filter(
       (code) =>
-        code.slice(0, 2) === provinceCode.slice(0, 2) && !code.endsWith("00")
+        code.slice(0, 2) === provinceCode.slice(0, 2) &&
+        code.endsWith("00") &&
+        addrData[code] !== prefix
     );
     if (isFull) {
-      return `${prefix}${sample(cityList)}`;
+      return `${prefix}${addrData[sample(cityList)]}`;
     }
-    return sample(cityList);
+    return addrData[sample(cityList)];
   }
   const cityCodes = Object.keys(addrData).filter(
     (code) => code.endsWith("00") && code.slice(2, 4) !== "00"
@@ -34,7 +36,7 @@ module.exports = (...args) => {
   const cityCode = sample(cityCodes);
   const cityName = addrData[cityCode];
   if (isFull) {
-    const provinceCode = cityCode.toString().replace(/\d{2}/, "00");
+    const provinceCode = cityCode.toString().replace(/\d{4}$/, "0000");
     const provinceName = addrData[provinceCode];
     return `${provinceName}${cityName}`;
   }

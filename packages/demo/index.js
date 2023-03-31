@@ -16,16 +16,6 @@ function log(object) {
 }
 log(
   mock({
-    name: "@cname",
-  })
-);
-log(
-  mock({
-    name: "@cname(李)",
-  })
-);
-log(
-  mock({
-    name: "@cname(李,2)",
+    name: "@county",
   })
 );

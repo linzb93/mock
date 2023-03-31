@@ -1,6 +1,9 @@
 const use = require("./use");
 
 use("cname", require("../random/name/cname"));
+use("province", require("../random/address/province"));
+use("city", require("../random/address/city"));
+use("county", require("../random/address/county"));
 
 module.exports = (template) => {
   return Object.keys(template).reduce((obj, key) => {
