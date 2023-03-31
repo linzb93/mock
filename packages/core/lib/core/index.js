@@ -15,7 +15,7 @@ module.exports = (template) => {
       const args = match[3] ? match[3].split(",") : [];
       return {
         ...obj,
-        [key]: use.database[match[1]](...args),
+        [key]: use.database[match[1]](...getParams(args)),
       };
     }
     return {
@@ -24,3 +24,18 @@ module.exports = (template) => {
     };
   }, {});
 };
+
+function getParams(args) {
+  return args.map((arg) => {
+    if (arg === "true") {
+      return true;
+    }
+    if (arg === "false") {
+      return false;
+    }
+    if (parseInt(arg) === Number(arg)) {
+      return Number(arg);
+    }
+    return arg;
+  });
+}

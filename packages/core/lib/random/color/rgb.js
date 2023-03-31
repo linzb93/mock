@@ -1,5 +1,5 @@
 module.exports = (useOpacity) => {
-  if (useOpacity === "true") {
+  if (useOpacity === true) {
     const opacity = Math.random().toFixed(2);
     return `rgba(${getRandom()},${getRandom()},${getRandom()},${opacity})`;
   }

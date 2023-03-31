@@ -4,7 +4,6 @@ module.exports = (...args) => {
   if (args.length === 0) {
     return dayjs(parseInt(Math.random() * 1e10)).toDate();
   } else if (args.length === 1) {
-    //
     return dayjs(parseInt(Math.random() * 1e10)).format(args[0]);
   } else if (args.length === 3) {
     const [type, date, format] = args;

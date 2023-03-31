@@ -1,4 +1,5 @@
 const addrData = require("./address_ch.json");
+const { sample } = require("../../utils");
 module.exports = () => {
   const provinceCodes = Object.keys(addrData).filter((code) =>
     code.endsWith("0000")
@@ -7,5 +8,5 @@ module.exports = () => {
     (list, code) => list.concat(addrData[code]),
     []
   );
-  return provinceList[parseInt(Math.random() * provinceList.length)];
+  return sample(provinceList);
 };
